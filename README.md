@@ -20,7 +20,21 @@ import (
 )
 
 func main() {
-	fmt.Println(greetings.Hello("Juan"))
+    greeting, err := greetings.Hello("Juan")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(greeting)
+
+    messages, err := greetings.Hellos([]string{"John", "Sally", "Miguel", "Luisa"})
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    for _, greeting := range messages {
+        fmt.Println(greeting)
+    }
 }
 ```
 
